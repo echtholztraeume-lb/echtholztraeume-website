@@ -1,5 +1,5 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Projekte | Echtholz Träume</title><meta name="description" content="Echtholz Träume – individueller Möbel- und Innenausbau aus dem Spessart.">
+<title>Projekte | Echtholz Träume</title><meta name="description" content="Referenzprojekte von Echtholz Träume: Garderoben, Einbaumöbel, Badmöbel, Treppen, Schlafzimmer, Küche und Sonderanfertigungen.">
 <style>
 :root{--ink:#1f211f;--paper:#fbfaf7;--cream:#f1ede5;--oak:#a77d54;--dark:#171815;--muted:#74736d}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
@@ -22,8 +22,25 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 .contactbox{max-width:760px;margin:35px auto 0;padding:35px;border:1px solid #cfcac0;background:white}.contactbox a{font-weight:700}
 .footer{padding:38px 7%;background:#171815;color:#ddd;display:flex;justify-content:space-between;gap:20px}.footer small{color:#aaa}
 @media(max-width:850px){.brand{top:28px;left:6%;font-size:14px}.hero{min-height:76vh;padding:110px 6% 50px;background-position:58% center}.hero.small{min-height:52vh}.section{padding:70px 6%}.grid3,.gallery,.services,.split{grid-template-columns:1fr}.card{min-height:360px}.gallery img{height:430px}.split-img{min-height:480px}.split-copy{padding:60px 6%}.step{grid-template-columns:45px 1fr}.step p{grid-column:2}.footer{flex-direction:column}}
+
+.project-intro{padding:140px 7% 40px;background:#fbfaf7}
+.project-intro h1{font-family:Georgia,serif;font-weight:400;font-size:clamp(48px,7vw,82px);line-height:1;margin:0 0 18px}
+.project-intro p{max-width:760px;color:#6c6a65;font-size:18px}
+.category-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.category-nav a{padding:10px 14px;border:1px solid #c8c2b7;border-radius:999px;text-decoration:none;font-weight:700;font-size:13px;background:#fff}
+.category{padding:70px 7%}
+.category.alt{background:#f1ede5}
+.category h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(36px,5vw,58px);margin:0 0 10px}
+.category>p{color:#716f6a;max-width:760px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.project-card{margin:0;background:#fff}
+.project-card img{width:100%;height:360px;object-fit:cover;display:block}
+.project-card figcaption{padding:14px 2px 4px;font-family:Georgia,serif;font-size:23px}
+.project-card small{display:block;color:#77736c;padding-bottom:8px}
+@media(max-width:900px){.project-grid{grid-template-columns:1fr 1fr}.project-card img{height:330px}}
+@media(max-width:620px){.project-intro{padding:120px 6% 30px}.category{padding:58px 6%}.project-grid{grid-template-columns:1fr}.project-card img{height:420px}}
 </style></head><body>
-<a class="brand light" href="index.html">ECHTHOLZ TRÄUME</a>
+<a class="brand" href="index.html">ECHTHOLZ TRÄUME</a>
 <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span></button>
 <div class="menu-backdrop" id="menuBackdrop"></div>
 <aside class="side-menu" id="sideMenu">
@@ -34,18 +51,89 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 <a href="kontakt.html">Projekt anfragen</a>
 </aside>
 
-<section class="hero small" style="--hero:url('https://echtholztraeume-website.vercel.app/garderobe-echtholztraeume.jpg?v=7')"><div class="hero-inner"><div class="eyebrow">Referenzen</div><h1>Unsere Projekte.</h1><p>Maßgefertigte Lösungen für unterschiedliche Räume, Anforderungen und Stilrichtungen.</p></div></section>
-<section class="section"><h2>Auswahl unserer Arbeiten</h2><div class="gallery">
-<figure><img src="https://echtholztraeume-website.vercel.app/garderobe-echtholztraeume.jpg?v=7"><figcaption>Garderobe & Einbaumöbel</figcaption></figure>
-<figure><img src="https://echtholztraeume-website.vercel.app/projekt-bad.jpg?v=7"><figcaption>Badmöbel aus Eiche</figcaption></figure>
-<figure><img src="https://echtholztraeume-website.vercel.app/projekt-treppe.jpg?v=7"><figcaption>Treppen & Holzarbeiten</figcaption></figure>
-<figure><img src="https://echtholztraeume-website.vercel.app/hero-kueche.jpg?v=7"><figcaption>Küche nach Maß</figcaption></figure>
-<figure><img src="https://echtholztraeume-website.vercel.app/project1.jpg?v=7"><figcaption>Individueller Innenausbau</figcaption></figure>
-<figure><img src="https://echtholztraeume-website.vercel.app/project2.jpg?v=7"><figcaption>Sonderanfertigung</figcaption></figure>
-</div></section>
-<section class="cta"><h2>Dein Projekt könnte das nächste sein.</h2><a class="btn dark" href="kontakt.html">Projekt anfragen</a></section>
+<main>
+<section class="project-intro">
+  <div class="eyebrow">Referenzen</div>
+  <h1>Unsere Projekte.</h1>
+  <p>Von Einbaumöbeln über Bad und Treppe bis zu besonderen Einzelanfertigungen. Hier findest du unsere Arbeiten nach Bereichen sortiert.</p>
+  <nav class="category-nav">
+    <a href="#garderobe">Garderobe & Einbaumöbel</a>
+    <a href="#bad">Bad</a>
+    <a href="#treppen">Treppen</a>
+    <a href="#schlafen">Schlafen & Ankleide</a>
+    <a href="#wohnen">Wohnen & Küche</a>
+    <a href="#sonder">Sonderanfertigungen</a>
+  </nav>
+</section>
 
-<footer class="footer"><div>ECHTHOLZ TRÄUME</div><small>Individueller Möbel- & Innenausbau · Spessart</small></footer>
+<section class="category alt" id="garderobe">
+  <h2>Garderobe & Einbaumöbel</h2>
+  <p>Stauraum nach Maß, Sitzbänke, Nischen und Lösungen, die sich sauber in den Raum integrieren.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="garderobe-lamellen.jpg" alt="Garderobe mit Eiche-Lamellen und Sitzbank"><figcaption>Garderobe mit Lamellen</figcaption><small>Einbaumöbel · Eiche</small></figure>
+    <figure class="project-card"><img src="garderobe-lichtnische.jpg" alt="Weiße Garderobe mit beleuchteter Holznische"><figcaption>Garderobe mit Lichtnische</figcaption><small>Einbaumöbel · Beleuchtung</small></figure>
+    <figure class="project-card"><img src="garderobe-spiegel-lamellen.jpg" alt="Garderobenmöbel mit rundem Spiegel und Lamellen"><figcaption>Spiegel & Lamellenwand</figcaption><small>Garderobe · Sonderlösung</small></figure>
+    <figure class="project-card"><img src="garderobe-sitzbank.jpg" alt="Garderobenschrank mit durchlaufender Sitzbank"><figcaption>Garderobe mit Sitzbank</figcaption><small>Einbauschrank · Sitzmöbel</small></figure>
+    <figure class="project-card"><img src="einbauschrank-regal.jpg" alt="Einbauschrank mit offenen Eiche-Regalen"><figcaption>Einbauschrank mit Regal</figcaption><small>Stauraum · Eiche</small></figure>
+    <figure class="project-card"><img src="hauswirtschaft-einbau.jpg" alt="Einbaumöbel für Waschmaschine und Trockner"><figcaption>Hauswirtschaft nach Maß</figcaption><small>Stauraum · Einbaumöbel</small></figure>
+  </div>
+</section>
+
+<section class="category" id="bad">
+  <h2>Bad</h2>
+  <p>Waschtische und Badmöbel, die Funktion, Stauraum und die Wirkung von echtem Holz verbinden.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="badmoebel-eiche.jpg" alt="Massives Badmöbel aus Eiche"><figcaption>Waschtisch aus Eiche</figcaption><small>Badmöbel · Massivholz</small></figure>
+    <figure class="project-card"><img src="badmoebel-doppelwaschtisch.jpg" alt="Doppelwaschtisch mit Holzfronten"><figcaption>Doppelwaschtisch</figcaption><small>Badmöbel · Eiche</small></figure>
+    <figure class="project-card"><img src="badmoebel-weiss.jpg" alt="Weißes schwebendes Badmöbel mit Licht"><figcaption>Schwebendes Badmöbel</figcaption><small>Badmöbel · Beleuchtung</small></figure>
+  </div>
+</section>
+
+<section class="category alt" id="treppen">
+  <h2>Treppen</h2>
+  <p>Eiche, klare Linien und Details, die sich in die Architektur des Hauses einfügen.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="treppe-modern.jpg" alt="Moderne Treppe mit Eiche und Metall"><figcaption>Treppe in Eiche & Metall</figcaption><small>Treppenbau · Eiche</small></figure>
+    <figure class="project-card"><img src="treppe-eiche-handlauf.jpg" alt="Treppenstufen und Handlauf aus Eiche"><figcaption>Eichestufen & Handlauf</figcaption><small>Treppenverkleidung · Handlauf</small></figure>
+  </div>
+</section>
+
+<section class="category" id="schlafen">
+  <h2>Schlafen & Ankleide</h2>
+  <p>Möbel, die ruhige Räume schaffen und vorhandenen Platz optimal ausnutzen.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="bett-eiche.jpg" alt="Massivholzbett aus Eiche"><figcaption>Massivholzbett</figcaption><small>Schlafzimmer · Eiche</small></figure>
+    <figure class="project-card"><img src="ankleide-dachschraege.jpg" alt="Ankleide unter Dachschräge"><figcaption>Ankleide unter Dachschräge</figcaption><small>Einbaumöbel · Stauraum</small></figure>
+  </div>
+</section>
+
+<section class="category alt" id="wohnen">
+  <h2>Wohnen & Küche</h2>
+  <p>Individuelle Möbel und Einbauten für Wohnräume, Küche und angrenzende Bereiche.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="bar-theke.jpg" alt="Individuelle Bar und Theke"><figcaption>Bar & Theke</figcaption><small>Innenausbau · Sondermöbel</small></figure>
+    <figure class="project-card"><img src="hero-kueche.jpg" alt="Küche nach Maß"><figcaption>Küche nach Maß</figcaption><small>Küche · Innenausbau</small></figure>
+  </div>
+</section>
+
+<section class="category" id="sonder">
+  <h2>Sonderanfertigungen</h2>
+  <p>Wenn Standard keine passende Antwort ist, entwickeln wir eine Lösung für den Raum und den Menschen, der ihn nutzt.</p>
+  <div class="project-grid">
+    <figure class="project-card"><img src="sitzfenster-lukas.jpg" alt="Sitzfenster mit Stauraum"><figcaption>Sitzfenster mit Stauraum</figcaption><small>Sonderanfertigung · Eiche</small></figure>
+    <figure class="project-card"><img src="schiebetuer-holz.jpg" alt="Schiebetür aus Holz"><figcaption>Schiebetür aus Holz</figcaption><small>Tür · Massivholz</small></figure>
+    <figure class="project-card"><img src="sauna-holz.jpg" alt="Sauna mit Holzverkleidung"><figcaption>Sauna-Ausbau</figcaption><small>Innenausbau · Holz</small></figure>
+  </div>
+</section>
+
+<section class="cta"><h2>Du hast selbst eine Idee?</h2><p>Zeig uns deinen Raum und erzähl uns, was du dir wünschst.</p><a class="btn dark" href="kontakt.html">Projekt anfragen</a></section>
+</main>
+
+<footer class="footer">
+<div>ECHTHOLZ TRÄUME</div>
+<div><a href="impressum.html">Impressum</a> &nbsp;|&nbsp; <a href="datenschutz.html">Datenschutz</a></div>
+<small>Individueller Möbel- & Innenausbau · Spessart</small>
+</footer>
 <script>
 (()=>{const b=document.getElementById('menuToggle'),m=document.getElementById('sideMenu'),d=document.getElementById('menuBackdrop');
 const c=()=>{m.classList.remove('open');d.classList.remove('open')};
