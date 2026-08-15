@@ -22,6 +22,23 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 .contactbox{max-width:760px;margin:35px auto 0;padding:35px;border:1px solid #cfcac0;background:white}.contactbox a{font-weight:700}
 .footer{padding:38px 7%;background:#171815;color:#ddd;display:flex;justify-content:space-between;gap:20px}.footer small{color:#aaa}
 @media(max-width:850px){.brand{top:28px;left:6%;font-size:14px}.hero{min-height:76vh;padding:110px 6% 50px;background-position:58% center}.hero.small{min-height:52vh}.section{padding:70px 6%}.grid3,.gallery,.services,.split{grid-template-columns:1fr}.card{min-height:360px}.gallery img{height:430px}.split-img{min-height:480px}.split-copy{padding:60px 6%}.step{grid-template-columns:45px 1fr}.step p{grid-column:2}.footer{flex-direction:column}}
+
+.whatsapp-check{max-width:900px;margin:40px auto 0;background:#fff;border:1px solid #d6d0c5;padding:28px}
+.whatsapp-check h3{font-family:Georgia,serif;font-weight:400;font-size:30px;margin:0 0 8px}
+.whatsapp-check .hint{color:#706d67;margin-bottom:24px}
+.check-group{border-top:1px solid #ded8ce;padding:22px 0}
+.check-group:first-of-type{border-top:0}
+.check-group legend{font-weight:700;margin-bottom:12px}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.choice{display:flex;gap:9px;align-items:flex-start;padding:9px 0}
+.choice input{margin-top:5px;accent-color:#1f211f}
+.whatsapp-check textarea{width:100%;min-height:110px;padding:12px;border:1px solid #cfc8bd;background:#fbfaf7;font:inherit}
+.whatsapp-send{display:inline-block;margin-top:10px;padding:14px 20px;border:0;background:#1f211f;color:#fff;font-weight:700;cursor:pointer}
+.privacy-mini{font-size:13px;color:#77736c;margin-top:12px}
+.social-box{max-width:900px;margin:32px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.social-link{padding:22px;border:1px solid #d6d0c5;background:#f7f4ee;text-decoration:none;font-weight:700}
+@media(max-width:650px){.choice-grid,.social-box{grid-template-columns:1fr}.whatsapp-check{padding:22px}}
+
 </style></head><body>
 <a class="brand light" href="index.html">ECHTHOLZ TRÄUME</a>
 <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span></button>
@@ -32,6 +49,8 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 <a href="leistungen.html">Leistungen</a>
 <a href="ueber-uns.html">Über uns</a>
 <a href="kontakt.html">Projekt anfragen</a>
+<a href="https://www.instagram.com/echtholz.traeume_lb/" target="_blank" rel="noopener">Instagram</a>
+<a href="kontakt.html#whatsapp-anfrage">WhatsApp</a>
 </aside>
 
 <section class="hero small" style="--hero:url('https://echtholztraeume-website.vercel.app/projekt-bad.jpg?v=7')"><div class="hero-inner"><div class="eyebrow">Projektanfrage</div><h1>Erzähl uns von deiner Idee.</h1><p>Je mehr wir zu Beginn wissen, desto besser können wir dein Projekt einschätzen.</p></div></section>
@@ -40,9 +59,74 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 <p>Für eine erste Anfrage reichen ein paar Stichpunkte. Wir melden uns anschließend bei dir und besprechen die nächsten Schritte.</p>
 <p><a class="btn dark" href="mailto:info@echtholztraeume.de?subject=Projektanfrage%20Echtholz%20Träume">E-Mail schreiben</a></p></div></section>
 
+
+<section class="section alt" id="whatsapp-anfrage">
+  <h2>Projekt über WhatsApp anfragen</h2>
+  <p class="lead">Beantworte kurz ein paar Punkte. Danach öffnet sich WhatsApp mit einer bereits vorbereiteten Nachricht – unsere Telefonnummer wird auf der Website nicht angezeigt.</p>
+
+  <form class="whatsapp-check" id="whatsappCheck" onsubmit="return false;">
+    <h3>Kurzer Projekt-Check</h3>
+    <p class="hint">Dauert ungefähr eine Minute und hilft uns, deine Anfrage direkt besser einzuordnen.</p>
+
+    <fieldset class="check-group">
+      <legend>1. Worum geht es?</legend>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="projekt" value="Garderobe / Einbauschrank" required> Garderobe / Einbauschrank</label>
+        <label class="choice"><input type="radio" name="projekt" value="Badmöbel"> Badmöbel</label>
+        <label class="choice"><input type="radio" name="projekt" value="Treppe"> Treppe</label>
+        <label class="choice"><input type="radio" name="projekt" value="Küche"> Küche</label>
+        <label class="choice"><input type="radio" name="projekt" value="Schlafzimmer / Ankleide"> Schlafzimmer / Ankleide</label>
+        <label class="choice"><input type="radio" name="projekt" value="Sonderanfertigung"> Sonderanfertigung</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="check-group">
+      <legend>2. Neubau oder Bestand?</legend>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="situation" value="Neubau" required> Neubau</label>
+        <label class="choice"><input type="radio" name="situation" value="Bestand / Renovierung"> Bestand / Renovierung</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="check-group">
+      <legend>3. Was ist schon vorhanden?</legend>
+      <div class="choice-grid">
+        <label class="choice"><input type="checkbox" name="vorhanden" value="ungefähre Maße"> Ungefähre Maße</label>
+        <label class="choice"><input type="checkbox" name="vorhanden" value="Fotos des Raums"> Fotos des Raums</label>
+        <label class="choice"><input type="checkbox" name="vorhanden" value="Grundriss / Plan"> Grundriss / Plan</label>
+        <label class="choice"><input type="checkbox" name="vorhanden" value="Inspirationsbilder"> Inspirationsbilder</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="check-group">
+      <legend>4. Wann soll das Projekt ungefähr umgesetzt werden?</legend>
+      <div class="choice-grid">
+        <label class="choice"><input type="radio" name="zeitraum" value="so bald wie möglich"> So bald wie möglich</label>
+        <label class="choice"><input type="radio" name="zeitraum" value="in 1–3 Monaten"> In 1–3 Monaten</label>
+        <label class="choice"><input type="radio" name="zeitraum" value="in 3–6 Monaten"> In 3–6 Monaten</label>
+        <label class="choice"><input type="radio" name="zeitraum" value="später / noch offen"> Später / noch offen</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="check-group">
+      <legend>5. Was sollten wir noch wissen?</legend>
+      <textarea id="projektNotiz" placeholder="Zum Beispiel Maße, Materialwunsch, besondere Anforderungen …"></textarea>
+    </fieldset>
+
+    <button type="button" class="whatsapp-send" id="whatsappSend">WhatsApp-Chat öffnen</button>
+    <p class="privacy-mini">Mit dem Klick öffnest du WhatsApp. Dabei gelten die Datenschutzbestimmungen von WhatsApp.</p>
+  </form>
+
+  <div class="social-box">
+    <a class="social-link" href="https://www.instagram.com/echtholz.traeume_lb/" target="_blank" rel="noopener">Instagram öffnen ↗</a>
+    <a class="social-link" href="mailto:info@echtholztraeume.de">Lieber per E-Mail anfragen →</a>
+  </div>
+</section>
+
 <footer class="footer">
 <div>ECHTHOLZ TRÄUME</div>
 <div><a href="impressum.html">Impressum</a> &nbsp;|&nbsp; <a href="datenschutz.html">Datenschutz</a></div>
+<div><a href="https://www.instagram.com/echtholz.traeume_lb/" target="_blank" rel="noopener">Instagram</a> &nbsp;|&nbsp; <a href="kontakt.html#whatsapp-anfrage">WhatsApp</a></div>
 <small>Individueller Möbel- & Innenausbau · Spessart</small>
 </footer>
 <script>
@@ -50,4 +134,33 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 const c=()=>{m.classList.remove('open');d.classList.remove('open')};
 b.onclick=()=>{m.classList.toggle('open');d.classList.toggle('open')};d.onclick=c;})();
 </script>
+
+<script>
+(function(){
+  const btn = document.getElementById('whatsappSend');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    const projekt = document.querySelector('input[name="projekt"]:checked');
+    const situation = document.querySelector('input[name="situation"]:checked');
+    if(!projekt || !situation){
+      alert('Bitte wähle zuerst Projektart sowie Neubau oder Bestand aus.');
+      return;
+    }
+    const vorhanden = Array.from(document.querySelectorAll('input[name="vorhanden"]:checked')).map(el => el.value);
+    const zeitraum = document.querySelector('input[name="zeitraum"]:checked');
+    const notiz = document.getElementById('projektNotiz').value.trim();
+
+    let msg = 'Hallo Echtholz Träume, ich möchte ein Projekt anfragen.\n\n';
+    msg += 'Projekt: ' + projekt.value + '\n';
+    msg += 'Situation: ' + situation.value + '\n';
+    msg += 'Vorhanden: ' + (vorhanden.length ? vorhanden.join(', ') : 'noch nichts davon') + '\n';
+    msg += 'Zeitraum: ' + (zeitraum ? zeitraum.value : 'noch offen') + '\n';
+    if(notiz) msg += 'Weitere Infos: ' + notiz + '\n';
+    msg += '\nIch würde mich über eine Rückmeldung freuen.';
+
+    window.open('https://wa.me/4915122569580?text=' + encodeURIComponent(msg), '_blank');
+  });
+})();
+</script>
+
 </body></html>
