@@ -22,6 +22,26 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 .contactbox{max-width:760px;margin:35px auto 0;padding:35px;border:1px solid #cfcac0;background:white}.contactbox a{font-weight:700}
 .footer{padding:38px 7%;background:#171815;color:#ddd;display:flex;justify-content:space-between;gap:20px}.footer small{color:#aaa}
 @media(max-width:850px){.brand{top:28px;left:6%;font-size:14px}.hero{min-height:76vh;padding:110px 6% 50px;background-position:58% center}.hero.small{min-height:52vh}.section{padding:70px 6%}.grid3,.gallery,.services,.split{grid-template-columns:1fr}.card{min-height:360px}.gallery img{height:430px}.split-img{min-height:480px}.split-copy{padding:60px 6%}.step{grid-template-columns:45px 1fr}.step p{grid-column:2}.footer{flex-direction:column}}
+
+.trust-section{padding:78px 7%;background:#fbfaf7}
+.trust-head{max-width:760px;margin-bottom:34px}
+.trust-head h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(38px,5vw,62px);line-height:1.05;margin:0 0 16px}
+.trust-head p{color:#6f6c66;font-size:18px}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.trust-item{padding:25px 20px;border-top:1px solid #bfb8ad}
+.trust-item .num{font-size:12px;letter-spacing:.14em;color:#8a755e;font-weight:700}
+.trust-item h3{font-family:Georgia,serif;font-weight:400;font-size:25px;margin:10px 0 8px}
+.trust-item p{margin:0;color:#6e6b65}
+.home-wa{padding:90px 7%;background:#d7c7b3;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
+.home-wa h2{font-family:Georgia,serif;font-weight:400;font-size:clamp(42px,6vw,72px);line-height:1;margin:0 0 18px}
+.home-wa p{font-size:18px;max-width:680px}
+.home-wa-card{background:#fbfaf7;padding:28px;border:1px solid rgba(0,0,0,.12)}
+.home-wa-card strong{display:block;font-family:Georgia,serif;font-weight:400;font-size:27px;margin-bottom:10px}
+.home-wa-card ul{padding-left:20px;color:#666}
+.home-wa-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:850px){.trust-grid{grid-template-columns:1fr 1fr}.home-wa{grid-template-columns:1fr;gap:25px}}
+@media(max-width:560px){.trust-grid{grid-template-columns:1fr}.trust-section,.home-wa{padding:65px 6%}}
+
 </style></head><body>
 <a class="brand light" href="index.html">ECHTHOLZ TRÄUME</a>
 <button class="menu-toggle" id="menuToggle" aria-label="Menü öffnen"><span></span></button>
@@ -54,9 +74,46 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 <div class="service"><h3>Sonderanfertigungen</h3><p>Wenn Standard nicht passt, entwickeln und fertigen wir die passende Lösung.</p></div>
 </div><p style="margin-top:30px"><a class="btn dark" href="leistungen.html">Alle Leistungen</a></p></section>
 
+<section class="trust-section">
+  <div class="trust-head">
+    <div class="eyebrow">Warum Echtholz Träume?</div>
+    <h2>Persönlich geplant. Passend gefertigt.</h2>
+    <p>Bei uns geht es nicht darum, irgendein Möbel in einen Raum zu stellen. Wir entwickeln eine Lösung, die zu deinem Zuhause, deinem Alltag und deinen Vorstellungen passt.</p>
+  </div>
+  <div class="trust-grid">
+    <article class="trust-item"><span class="num">01</span><h3>Persönliche Beratung</h3><p>Direkter Austausch statt anonymer Standardlösung.</p></article>
+    <article class="trust-item"><span class="num">02</span><h3>Individuelle Planung</h3><p>Maße, Nutzung und Gestaltung werden auf dein Projekt abgestimmt.</p></article>
+    <article class="trust-item"><span class="num">03</span><h3>Handwerkliche Fertigung</h3><p>Saubere Verarbeitung und hochwertige Materialien stehen im Mittelpunkt.</p></article>
+    <article class="trust-item"><span class="num">04</span><h3>Montage vor Ort</h3><p>Von der Idee bis zum fertigen Ergebnis bekommst du eine durchgängige Lösung.</p></article>
+  </div>
+</section>
+
+
 <section class="split dark"><div class="split-img" style="--img:url('https://echtholztraeume-website.vercel.app/lukas-michelle.jpg?v=7')"></div><div class="split-copy"><div class="eyebrow">Echtholz Träume</div>
 <h2>Das sind wir.</h2><p>Persönliche Planung, echtes Handwerk und Lösungen, die nicht von der Stange kommen.</p>
 <p><a class="btn light" href="ueber-uns.html">Mehr über uns</a></p></div></section>
+
+
+<section class="home-wa">
+  <div>
+    <div class="eyebrow">Dein Projekt</div>
+    <h2>Eine Idee im Kopf? Zeig sie uns.</h2>
+    <p>Mit unserem kurzen Projekt-Check beantwortest du ein paar Fragen zu deinem Vorhaben. Danach öffnet sich WhatsApp mit einer bereits vorbereiteten Anfrage.</p>
+    <div class="home-wa-actions">
+      <a class="btn dark" href="kontakt.html#whatsapp-anfrage">Projekt-Check starten</a>
+      <a class="btn" href="projekte.html">Erst Projekte ansehen</a>
+    </div>
+  </div>
+  <div class="home-wa-card">
+    <strong>In etwa einer Minute</strong>
+    <ul>
+      <li>Projektart auswählen</li>
+      <li>Neubau oder Bestand angeben</li>
+      <li>Maße, Fotos oder Pläne ankreuzen</li>
+      <li>WhatsApp-Nachricht automatisch vorbereiten</li>
+    </ul>
+  </div>
+</section>
 
 <section class="cta"><h2>Du hast eine Idee für dein Zuhause?</h2><p>Erzähl uns davon. Gemeinsam schauen wir, was daraus werden kann.</p><a class="btn dark" href="kontakt.html">Projekt anfragen</a></section>
 
