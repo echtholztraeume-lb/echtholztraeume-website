@@ -33,6 +33,10 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
 .choice input{margin-top:5px;accent-color:#1f211f}
 .whatsapp-check textarea,.whatsapp-check input[type="text"]{width:100%;padding:12px;border:1px solid #cfc8bd;background:#fbfaf7;font:inherit}
 .whatsapp-check textarea{min-height:110px}
+.conditional-field{display:none;margin-top:16px;padding:16px;background:#f7f4ee;border:1px solid #ded8ce}
+.conditional-field.visible{display:block}
+.conditional-field label{display:block;font-weight:700;margin-bottom:8px}
+.field-hint{display:block;font-size:13px;color:#77736c;margin-top:6px}
 .whatsapp-send{display:inline-block;margin-top:10px;padding:14px 20px;border:0;background:#1f211f;color:#fff;font-weight:700;cursor:pointer}
 .privacy-mini{font-size:13px;color:#77736c;margin-top:12px}
 .social-box{max-width:900px;margin:32px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -79,10 +83,15 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
     <fieldset class="check-group">
       <legend>3. Was ist schon vorhanden?</legend>
       <div class="choice-grid">
-        <label class="choice"><input type="checkbox" name="vorhanden" value="ungefähre Maße"> Ungefähre Maße</label>
+        <label class="choice"><input type="checkbox" id="masseVorhanden" name="vorhanden" value="ungefähre Maße"> Ungefähre Maße</label>
         <label class="choice"><input type="checkbox" name="vorhanden" value="Fotos des Raums"> Fotos des Raums</label>
         <label class="choice"><input type="checkbox" name="vorhanden" value="Grundriss / Plan"> Grundriss / Plan</label>
         <label class="choice"><input type="checkbox" name="vorhanden" value="Inspirationsbilder"> Inspirationsbilder</label>
+      </div>
+      <div class="conditional-field" id="masseFeld">
+        <label for="projektMasse">Ungefähre Maße</label>
+        <input type="text" id="projektMasse" placeholder="z. B. Breite 280 cm × Höhe 240 cm × Tiefe 60 cm">
+        <span class="field-hint">Es reichen ungefähre Angaben. Genau messen können wir später gemeinsam.</span>
       </div>
     </fieldset>
     <fieldset class="check-group">
@@ -100,7 +109,7 @@ a{color:inherit}.brand{position:fixed;top:24px;left:5%;z-index:1003;text-decorat
     </fieldset>
     <fieldset class="check-group">
       <legend>6. Was sollten wir noch wissen?</legend>
-      <textarea id="projektNotiz" placeholder="Zum Beispiel Maße, Materialwunsch, besondere Anforderungen …"></textarea>
+      <textarea id="projektNotiz" placeholder="Zum Beispiel Materialwunsch, besondere Anforderungen oder weitere Wünsche …"></textarea>
     </fieldset>
     <button type="button" class="whatsapp-send" id="whatsappSend">WhatsApp-Chat öffnen</button>
     <p class="privacy-mini">Mit dem Klick öffnest du WhatsApp. Dabei gelten die Datenschutzbestimmungen von WhatsApp.</p>
@@ -128,6 +137,17 @@ b.onclick=()=>{m.classList.toggle('open');d.classList.toggle('open')};d.onclick=
 <script>
 (function(){
   const btn = document.getElementById('whatsappSend');
+  const masseCheck = document.getElementById('masseVorhanden');
+  const masseFeld = document.getElementById('masseFeld');
+  const masseInput = document.getElementById('projektMasse');
+  if(masseCheck && masseFeld && masseInput){
+    const updateMasse = function(){
+      masseFeld.classList.toggle('visible', masseCheck.checked);
+      if(!masseCheck.checked) masseInput.value = '';
+    };
+    masseCheck.addEventListener('change', updateMasse);
+    updateMasse();
+  }
   if(!btn) return;
   btn.addEventListener('click', function(){
     const projekt = document.querySelector('input[name="projekt"]:checked');
@@ -138,12 +158,14 @@ b.onclick=()=>{m.classList.toggle('open');d.classList.toggle('open')};d.onclick=
     }
     const vorhanden = Array.from(document.querySelectorAll('input[name="vorhanden"]:checked')).map(el => el.value);
     const zeitraum = document.querySelector('input[name="zeitraum"]:checked');
+    const masse = masseInput ? masseInput.value.trim() : '';
     const budget = document.getElementById('projektBudget').value.trim();
     const notiz = document.getElementById('projektNotiz').value.trim();
     let msg = 'Hallo Echtholz Träume, ich möchte ein Projekt anfragen.\n\n';
     msg += 'Projekt: ' + projekt.value + '\n';
     msg += 'Situation: ' + situation.value + '\n';
     msg += 'Vorhanden: ' + (vorhanden.length ? vorhanden.join(', ') : 'noch nichts davon') + '\n';
+    if(masseCheck && masseCheck.checked) msg += 'Ungefähre Maße: ' + (masse || 'noch nicht eingetragen') + '\n';
     msg += 'Zeitraum: ' + (zeitraum ? zeitraum.value : 'noch offen') + '\n';
     msg += 'Budget: ' + (budget || 'noch offen') + '\n';
     if(notiz) msg += 'Weitere Infos: ' + notiz + '\n';
