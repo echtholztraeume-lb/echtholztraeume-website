@@ -169,7 +169,8 @@ b.onclick=()=>{m.classList.toggle('open');d.classList.toggle('open')};d.onclick=
     msg += 'Zeitraum: ' + (zeitraum ? zeitraum.value : 'noch offen') + '\n';
     msg += 'Budget: ' + (budget || 'noch offen') + '\n';
     if(notiz) msg += 'Weitere Infos: ' + notiz + '\n';
-    msg += '\nIch würde mich über eine Rückmeldung freuen.';
+    msg += '\n📎 Bitte sende uns im nächsten Schritt deine Fotos, Grundrisse oder Inspirationsbilder direkt hier im WhatsApp-Chat.\n\n';
+    msg += 'Ich würde mich über eine Rückmeldung freuen.';
     window.open('https://wa.me/4915122569580?text=' + encodeURIComponent(msg), '_blank');
   });
 })();
