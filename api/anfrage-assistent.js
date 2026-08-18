@@ -11,27 +11,57 @@ const PROJECT_FIELDS = [
 const BRAND_NAME = "Echtholz Träume";
 
 const EXCLUDED_HINTS = [
-  "rechnung", "auftragsbestätigung", "bestellung", "versand", "newsletter",
-  "praktikum", "bewerbung", "kooperation", "support", "bestätigungscode"
+  "rechnung", "auftragsbestätigung", "bestellung", "versand", "lieferung",
+  "newsletter", "praktikum", "bewerbung", "kooperation", "support",
+  "bestätigungscode", "sicherheitswarnung", "passwort", "login", "registrierung",
+  "verifizierung", "ticket wurde", "zahlung", "mahnung", "konto bestätigen"
 ];
 
-const PROJECT_HINTS = [
-  "anfrage", "anfertigung", "einbauschrank", "schrank", "garderobe", "küche",
-  "treppe", "möbel", "tisch", "sitzbank", "badmöbel", "regal", "holz",
-  "innenausbau", "sanierung", "projekt"
+const STRONG_PROJECT_HINTS = [
+  "einbauschrank", "schrank", "garderobe", "küche", "treppe", "möbel", "tisch",
+  "sitzbank", "badmöbel", "regal", "innenausbau", "sanierung", "schreinerarbeiten",
+  "maßanfertigung", "massanfertigung", "arbeitsplatte", "holzpflege", "bankauflage",
+  "eingangsportal", "bodenbelag", "tür", "tuere", "türe"
 ];
+
+const INTENT_HINTS = [
+  "anfrage", "angebot", "anfertigen", "anfertigung", "bauen", "fertigen",
+  "wir würden gerne", "wir wuerden gerne", "ich würde gerne", "ich wuerde gerne",
+  "wir möchten", "wir moechten", "ich möchte", "ich moechte", "suchen einen",
+  "suchen eine", "interesse an"
+];
+
+function normalize(value = "") {
+  return value.toLowerCase();
+}
 
 function textOf(input = {}) {
-  return `${input.subject || ""}\n${input.body || ""}`.toLowerCase();
+  return normalize(`${input.subject || ""}\n${input.body || ""}`);
+}
+
+function matchingHints(text, hints) {
+  return hints.filter((hint) => text.includes(hint));
 }
 
 function classify(input) {
   const text = textOf(input);
-  const excluded = EXCLUDED_HINTS.filter((word) => text.includes(word));
-  const project = PROJECT_HINTS.filter((word) => text.includes(word));
-  if (excluded.length && !project.length) return { category: "kein_neuprojekt", confidence: 0.92, reasons: excluded };
-  if (project.length >= 2) return { category: "projektanfrage", confidence: 0.82, reasons: project };
-  return { category: "manuell_pruefen", confidence: 0.5, reasons: [...project, ...excluded] };
+  const excluded = matchingHints(text, EXCLUDED_HINTS);
+  if (excluded.length) {
+    return { category: "kein_neuprojekt", confidence: 0.99, reasons: excluded };
+  }
+
+  const project = matchingHints(text, STRONG_PROJECT_HINTS);
+  const intent = matchingHints(text, INTENT_HINTS);
+
+  if (project.length >= 1 && intent.length >= 1) {
+    return {
+      category: "projektanfrage",
+      confidence: Math.min(0.98, 0.86 + (project.length - 1) * 0.03 + (intent.length - 1) * 0.02),
+      reasons: [...project, ...intent]
+    };
+  }
+
+  return { category: "manuell_pruefen", confidence: 0.4, reasons: [...project, ...intent] };
 }
 
 function detectAddressStyle(input) {
@@ -55,16 +85,24 @@ function extract(input) {
   const body = input.body || "";
   const lower = body.toLowerCase();
   const data = {};
-  const projectType = PROJECT_HINTS.find((word) => lower.includes(word) && !["anfrage", "projekt", "holz"].includes(word));
+
+  const projectType = STRONG_PROJECT_HINTS.find((word) => lower.includes(word));
   if (projectType) data.projektart = projectType;
+
   const zip = body.match(/\b\d{5}\b/);
   if (zip) data.ort_plz = zip[0];
+
   const dimension = body.match(/\b\d+(?:[.,]\d+)?\s*(?:x|×)\s*\d+(?:[.,]\d+)?(?:\s*(?:x|×)\s*\d+(?:[.,]\d+)?)?\s*(?:mm|cm|m)?\b/i);
   if (dimension) data.masse = dimension[0];
+
   const materials = ["eiche", "nussbaum", "buche", "esche", "fichte", "weiß", "weiss", "schwarz", "grau"];
   const material = materials.find((word) => lower.includes(word));
   if (material) data.material_optik = material;
-  if (/foto|bild|plan|zeichnung|grundriss|anhang|anbei/.test(lower) || (input.attachments || []).length) data.fotos_plaene = "vorhanden";
+
+  if (/foto|bild|plan|zeichnung|grundriss|anhang|anbei/.test(lower) || (input.attachments || []).length) {
+    data.fotos_plaene = "vorhanden";
+  }
+
   return data;
 }
 
@@ -85,7 +123,9 @@ function draftReply(input, data, missing) {
     if (missing.includes("ort_plz")) questions.push("den Projektort bzw. die PLZ");
     if (missing.includes("zeitraum")) questions.push("deinen gewünschten Zeitraum");
     if (missing.includes("fotos_plaene")) questions.push("wenn vorhanden, Fotos, Skizzen oder Pläne");
-    const ask = questions.length ? `\n\nDamit wir uns ein gutes Bild machen können, schick uns bitte noch ${questions.join(", ")}.` : "\n\nDie wichtigsten Informationen sind bereits enthalten. Wir schauen uns deine Angaben an und melden uns mit dem nächsten sinnvollen Schritt.";
+    const ask = questions.length
+      ? `\n\nDamit wir uns ein gutes Bild machen können, schick uns bitte noch ${questions.join(", ")}.`
+      : "\n\nDie wichtigsten Informationen sind bereits enthalten. Wir schauen uns deine Angaben an und melden uns mit dem nächsten sinnvollen Schritt.";
     return `Hallo${firstName},\n\nvielen Dank für deine Anfrage${projectName}. Schön, dass du dich mit deiner Idee an ${BRAND_NAME} wendest.${ask}\n\nViele Grüße\n${BRAND_NAME}`;
   }
 
@@ -95,21 +135,27 @@ function draftReply(input, data, missing) {
   if (missing.includes("ort_plz")) questions.push("den Projektort bzw. die PLZ");
   if (missing.includes("zeitraum")) questions.push("Ihren gewünschten Zeitraum");
   if (missing.includes("fotos_plaene")) questions.push("wenn vorhanden, Fotos, Skizzen oder Pläne");
-  const ask = questions.length ? `\n\nDamit wir uns ein gutes Bild machen können, schicken Sie uns bitte noch ${questions.join(", ")}.` : "\n\nDie wichtigsten Informationen sind bereits enthalten. Wir schauen uns Ihre Angaben an und melden uns mit dem nächsten sinnvollen Schritt.";
+  const ask = questions.length
+    ? `\n\nDamit wir uns ein gutes Bild machen können, schicken Sie uns bitte noch ${questions.join(", ")}.`
+    : "\n\nDie wichtigsten Informationen sind bereits enthalten. Wir schauen uns Ihre Angaben an und melden uns mit dem nächsten sinnvollen Schritt.";
   return `Hallo${firstName},\n\nvielen Dank für Ihre Anfrage${projectName}. Schön, dass Sie sich mit Ihrer Idee an ${BRAND_NAME} wenden.${ask}\n\nViele Grüße\n${BRAND_NAME}`;
 }
 
 export default function handler(req, res) {
-  if (req.method === "GET") return res.status(200).json({ ok: true, service: `${BRAND_NAME} Anfrage-Assistent`, mode: "draft_only", version: 2 });
+  if (req.method === "GET") {
+    return res.status(200).json({ ok: true, service: `${BRAND_NAME} Anfrage-Assistent`, mode: "draft_only", version: 3 });
+  }
   if (req.method !== "POST") {
     res.setHeader("Allow", "GET, POST");
     return res.status(405).json({ error: "Method not allowed" });
   }
+
   const input = req.body || {};
   const classification = classify(input);
   const projectData = extract(input);
   const missing = missingFields(projectData);
   const address_style = detectAddressStyle(input);
+
   return res.status(200).json({
     mode: "draft_only",
     classification,
