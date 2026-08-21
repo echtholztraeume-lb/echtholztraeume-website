@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {"id":"garderobe","title":"Garderobe & Einbaumöbel","description":"Stauraum nach Maß, Sitzbänke, Nischen und Lösungen, die sich sauber in den Raum integrieren.","projects":[
+      {"image":"IMG_0556.JPG","title":"Garderobenschrank mit beleuchteter Nische","meta":"Weiß matt · Eiche · Beleuchtung"},
+      {"image":"IMG_0937.JPG","title":"Deckenhoher Einbauschrank","meta":"Weiß matt · grifflos"},
+      {"image":"IMG_1472.JPG","title":"Garderobe mit Sitznische","meta":"Weiß · Eiche · Beleuchtung"},
+      {"image":"IMG_2563.JPG","title":"Garderobenschrank mit Holz-Nische","meta":"Weiß matt · Eiche"},
+      {"image":"IMG_2750.JPG","title":"Offene Garderobe mit Sitzbank","meta":"Eiche · offene Fächer"},
+      {"image":"IMG_3094.JPG","title":"Kleiderschrank","meta":"Weiß matt · maßgefertigt"},
+      {"image":"IMG_3333.JPG","title":"Garderobe mit beleuchteter Sitznische","meta":"Weiß · Holzdetail · Beleuchtung"},
+      {"image":"IMG_3341.JPG","title":"Einbaumöbel mit Arbeitsplatz","meta":"Weiß matt · Holz · Stauraum"},
+      {"image":"IMG_4022.JPG","title":"Flurmöbel mit Spiegel","meta":"Weiß · Holzrahmen · Spiegel"},
+      {"image":"IMG_4097.JPG","title":"Einbauschrank mit offener Holznische","meta":"Weiß matt · Eiche"},
+      {"image":"IMG_5556.JPG","title":"Garderobe mit Sitzbank und Spiegel","meta":"Weiß · Eiche · Spiegel"},
+      {"image":"IMG_7074.JPG","title":"Einbauschrank mit Holz-Nische","meta":"Weiß matt · Eiche"},
+      {"image":"IMG_9688.JPG","title":"Garderobe mit Sitzbank und Holzfronten","meta":"Weiß · Eiche · Stauraum"}
+    ]},
+    {"id":"bad","title":"Badmöbel nach Maß","description":"Waschtische und Badmöbel, die Funktion, Stauraum und hochwertige Materialien verbinden.","projects":[
+      {"image":"IMG_1156.JPG","title":"Waschtischunterschrank unter Dachschräge","meta":"Eiche · schwarze Platte"},
+      {"image":"IMG_2760.JPG","title":"Doppelwaschtisch mit Spiegelschränken","meta":"Weiß · Beleuchtung"},
+      {"image":"IMG_2805.JPG","title":"Doppelwaschtisch aus Eiche","meta":"Eiche · schwarze Platte"},
+      {"image":"IMG_3120.JPG","title":"Badmöbel unter Dachschräge","meta":"Holz · maßgefertigt"},
+      {"image":"IMG_3926.JPG","title":"Waschtisch mit farbigen Fronten","meta":"Lack · Spiegel · Stauraum"},
+      {"image":"IMG_3941.JPG","title":"Waschtisch aus Holz mit Aufsatzbecken","meta":"Holz · Aufsatzbecken"},
+      {"image":"IMG_4669_jpg.JPG","title":"Doppelwaschtisch mit Holzplatte","meta":"Weiß · Holz · Aufsatzbecken"},
+      {"image":"IMG_8426.JPG","title":"Doppelwaschtisch mit Holzfronten","meta":"Holz · Weiß · Doppelbecken"},
+      {"image":"IMG_9570_jpg.JPG","title":"Waschtischkonsole aus Eiche","meta":"Eiche · Aufsatzbecken"},
+      {"image":"IMG_9935.JPG","title":"Waschtisch mit Spiegelschrank und Lamellen","meta":"Weiß · Holz · Beleuchtung"}
+    ]},
+    {"id":"treppen","title":"Treppen","description":"Eiche, klare Linien und Details, die sich in die Architektur einfügen.","projects":[
+      {"image":"IMG_3444.JPG","title":"Treppe mit Holzstufen und schwarzem Geländer","meta":"Eiche · Metall"},
+      {"image":"IMG_4008.JPG","title":"Treppe mit Lamellengeländer","meta":"Holz · schwarze Details"},
+      {"image":"IMG_5412.JPG","title":"Treppenöffnung mit Holzgeländer","meta":"Holz · Maßanfertigung"},
+      {"image":"IMG_6483.JPG","title":"Treppe mit vertikalen Holzlamellen","meta":"Eiche · Lamellengeländer"},
+      {"image":"IMG_7999.JPG","title":"Freitragende Treppe mit Glasgeländer","meta":"Eiche · Glas · Beleuchtung"}
+    ]},
+    {"id":"schlafen","title":"Schlafen & Ankleide","description":"Möbel, die ruhige Räume schaffen und vorhandenen Platz optimal ausnutzen.","projects":[
+      {"image":"IMG_3767.JPG","title":"Kleiderschrank unter Dachschräge","meta":"Weiß matt · grifflos"},
+      {"image":"IMG_9575.JPG","title":"Schlafzimmer-Kommode nach Maß","meta":"Weiß · Schubladen · Stauraum"}
+    ]},
+    {"id":"wohnen","title":"Wohnen & Küche","description":"Individuelle Möbel und Einbauten für Wohnräume, Küche und angrenzende Bereiche.","projects":[
+      {"image":"IMG_0067.JPG","title":"Fensterbank mit Regal und Stauraum","meta":"Weiß · Holz · Sitzfläche"},
+      {"image":"IMG_0730.JPG","title":"Wohnraum mit Holzsäulen","meta":"Massivholz · Raumgestaltung"},
+      {"image":"IMG_2696.JPG","title":"Esstisch mit Baumkante","meta":"Massivholz · Metallgestell"},
+      {"image":"IMG_2803.JPG","title":"Schwebendes Lowboard","meta":"Weiß matt · wandhängend"},
+      {"image":"IMG_2898.JPG","title":"Massivholztisch mit schwarzem Gestell","meta":"Massivholz · Metall"},
+      {"image":"IMG_3129.JPG","title":"TV-Wand mit Regal und Lowboard","meta":"Grau · Holz · Stauraum"},
+      {"image":"IMG_3213.JPG","title":"Küchenzeile mit offenen Holzregalen","meta":"Weiß · Holz · offene Fächer"},
+      {"image":"IMG_3870.JPG","title":"Fensterbankmöbel nach Maß","meta":"Weiß matt · Stauraum"},
+      {"image":"IMG_4154.JPG","title":"TV-Wand mit Hängeschränken","meta":"Weiß · Holz · wandhängend"},
+      {"image":"IMG_6904.JPG","title":"Minimalistisches TV-Lowboard","meta":"Weiß matt · wandhängend"},
+      {"image":"IMG_7027.JPG","title":"TV-Lowboard mit Holz-Nische","meta":"Weiß · Eiche"},
+      {"image":"IMG_7410_jpg.JPG","title":"Esstisch aus Massivholz","meta":"Massivholz · Metallgestell"},
+      {"image":"IMG_8164.JPG","title":"TV-Lowboard in Weiß","meta":"Weiß matt · Holzdetail"},
+      {"image":"IMG_8170.JPG","title":"TV-Lowboard mit offener Holz-Nische","meta":"Weiß · Holz · grifflos"},
+      {"image":"IMG_9708.JPG","title":"Empfangstheke mit Lamellenfront","meta":"Dunkles Holz · Lamellen"}
+    ]},
+    {"id":"sonder","title":"Sonderanfertigungen","description":"Besondere Lösungen, die genau für Raum und Nutzung entwickelt wurden.","projects":[
+      {"image":"IMG_2164.JPG","title":"Glastrennwand mit Schiebetür","meta":"Glas · Metallrahmen"},
+      {"image":"IMG_2305.JPG","title":"Raumteiler aus Massivholz","meta":"Naturkante · Massivholz"},
+      {"image":"IMG_2472.JPG","title":"Sitzfenster mit Stauraum","meta":"Weiß · Holz · Sitzfläche"},
+      {"image":"IMG_2924.JPG","title":"Fensterbank mit integriertem Stauraum","meta":"Holz · Weiß · Maßanfertigung"},
+      {"image":"IMG_3404.JPG","title":"Sitzfenster mit Holzrahmen","meta":"Massivholz · Sitznische"},
+      {"image":"IMG_9753.JPG","title":"Bücherregal unter Dachschräge","meta":"Massivholz · offene Fächer"}
+    ]}
+  ]
+}
